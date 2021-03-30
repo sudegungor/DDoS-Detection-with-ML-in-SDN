@@ -51,4 +51,4 @@ BURADAN ŞUNU ANLIYORUZ --> KOLON BAŞLIKLARIMIZ [icmp,tcp,udp]
 (udp burada çıkmamış 33. satıra kadar veriyi almış olsaydık onu da görecektik.)
 
 '''
-
+print(X)
