@@ -2,10 +2,26 @@ from sklearn import preprocessing
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
+
+
 veriler = pd.read_csv('RahatGor.csv')
 
 # with open('verilerinAciklamasi.txt', 'w') as file:
 #     file.write(str(veriler.describe(include = 'all')))
+
+def donustur(data, index):
+    oneHotEncoder = preprocessing.OneHotEncoder()
+    # kategorik veriden sayısal bir ifadeye geçmek için one hot encoder kullanıyorum
+    tmp = data.iloc[:, index].values  # ilgili kolonu alıyorum
+
+    print(tmp[:10], type(tmp))
+
+    tmp = oneHotEncoder.fit_transform(tmp.reshape((-1, 1))).toarray()
+    columnNames = oneHotEncoder.get_feature_names()
+    tmp = pd.DataFrame(data=tmp, columns=columnNames)
+    return pd.concat([tmp, data.drop(columns=[data.columns[index]])], axis=1)
+    #print(data.columns)
+
 
 
 Y = veriler['outcome']
@@ -16,15 +32,21 @@ x = veriler.values
 print(X.shape) # (4940, 42)
 print(Y.shape) # (4940,)
 
-oneHotEncoder = preprocessing.OneHotEncoder()
-# kategorik veriden sayısal bir ifadeye geçmek için one hot encoder kullanıyorum
-tmp = X.iloc[:,2].values # ilgili kolonu alıyorum
+X = donustur(X,X.columns.get_loc('service'))
+X = donustur(X,X.columns.get_loc('protocol_type'))
+X = donustur(X,X.columns.get_loc('flag'))
 
-print(tmp[:10], type(tmp))
+print(len(X.columns))
 
-tmp = oneHotEncoder.fit_transform(tmp.reshape((-1,1))).toarray()
+# X.to_csv('BakalımOlmusMu.csv')
 
-print(tmp[:10])
+
+
+
+
+
+
+
 
 '''
         ONE HOT ENCODER BU İŞE YARIYOR
@@ -51,4 +73,3 @@ BURADAN ŞUNU ANLIYORUZ --> KOLON BAŞLIKLARIMIZ [icmp,tcp,udp]
 (udp burada çıkmamış 33. satıra kadar veriyi almış olsaydık onu da görecektik.)
 
 '''
-print(X)
