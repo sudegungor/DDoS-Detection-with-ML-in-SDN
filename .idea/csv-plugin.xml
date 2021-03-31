@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/OnHazirlik.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/VerisetiniIndir.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/moogle/moogle-main/index.html">
           <value>
             <Attribute>

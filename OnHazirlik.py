@@ -37,8 +37,10 @@ X = donustur(X,X.columns.get_loc('protocol_type'))
 X = donustur(X,X.columns.get_loc('flag'))
 
 print(len(X.columns))
-
-# X.to_csv('BakalımOlmusMu.csv')
+print('x:', len(X), ' Y: ', len(Y)) # x: 4940  Y:  4940 farklı olmasını beklemiyorduk zaten
+Y = pd.DataFrame(data = Y.values, columns=['outcome'])
+X = pd.concat([X,Y], axis=1)
+X.to_csv('BakalımOlmusMu.csv')
 
 
 
