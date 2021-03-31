@@ -1,7 +1,7 @@
 # BMT310-Grup1-DDoS_Mitigation_With_AI
 BMT310-Grup1-DDoS_Mitigation_With_AI
 
-![](https://lh3.googleusercontent.com/proxy/x8-GfSelLy3x9_FaEcpxxVCorbX7NzVjCxWUpU4diLX1qZk-5NlDV2RsFx_ncG8PGm1QdqvB7qFz7Qof2y9ITPp9pAZYHnFUykd5eyAkZ9EVcg)
+![](https://www.flowmon.com/CMSPages/GetFile.aspx?guid=4cec8e92-4689-4529-8fb7-5737d8b7340c&maxsidesize=2500)
 
 ## Kdd99 Veri Seti İnceleme ve Ön İşleme
 
@@ -11,10 +11,10 @@ için sayısal veri olması gerekir.
 
 Bizim alt problemimiz ise ddos saldırılarını sınıflandırmak. 
 
-Kdd99 veri setinde 3 kolon kategorik veri içeriyor bunlar: 
-protocol_type,
-flag,
-service
+Kdd99 veri setinde 3 kolon kategorik veri içeriyor bunlar:<br/>
+protocol_type,<br/>
+flag,<br/>
+service<br/>
 Bu kolonları sayısal verilere çeviriyoruz.
 
 ### Örnek olarak

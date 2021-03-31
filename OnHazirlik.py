@@ -52,21 +52,21 @@ print(len(X.columns))
         ONE HOT ENCODER BU İŞE YARIYOR
 
 ['icmp' 'icmp' 'tcp' 'icmp' 'icmp' 'tcp' 'icmp' 'icmp' 'tcp' 'icmp'] 
-     |
-     |
-     |
-     |
-     V
-[[1. 0. 0.]
- [1. 0. 0.]
- [0. 1. 0.]
- [1. 0. 0.]
- [1. 0. 0.]
- [0. 1. 0.]
- [1. 0. 0.]
- [1. 0. 0.]
- [0. 1. 0.]
- [1. 0. 0.]]
+                                 |
+                                 |
+                                 |
+                                 |
+                                 V
+                            [[1. 0. 0.]
+                             [1. 0. 0.]
+                             [0. 1. 0.]
+                             [1. 0. 0.]
+                             [1. 0. 0.]
+                             [0. 1. 0.]
+                             [1. 0. 0.]
+                             [1. 0. 0.]
+                             [0. 1. 0.]
+                             [1. 0. 0.]]
 
 BURADAN ŞUNU ANLIYORUZ --> KOLON BAŞLIKLARIMIZ [icmp,tcp,udp] 
 
