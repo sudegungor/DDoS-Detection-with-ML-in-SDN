@@ -1,21 +1,21 @@
 from sklearn import tree
-import pandas as pd
-import numpy as np
 from matplotlib import pyplot as plt
-from Veriler import VerileriGetir
-X,Y,x,y = VerileriGetir.verileriGetir()
+from Veriler.VerileriGetir import setiBol
+from DogrulukTesti.Dogruluk import dogruluguTestEt
+from sklearn.metrics import plot_confusion_matrix, confusion_matrix
 
+x_train, x_test, y_train, y_test = setiBol()
 dt = tree.DecisionTreeClassifier() # MAX depth
 
-dt.fit(x,y)
-pred = []
-for i in range(len(y)):
-    print('gerçek değer: '+y[i])
-    pred.append(dt.predict(x[i].reshape(1,-1)))
-    print('tahmin sonucu: ' + dt.predict(x[i].reshape(1,-1)))
-    print('-'*20)
+# Karar ağacını eğtiyoruz.
+dt.fit(x_train,y_train)
 
-# print(np.array(y[:200]))
-# print(np.array(pred))
-# print(type(y))
+# Karar ağacı test verisiyle tahmin sonuçları üretiyor.
+pred = dt.predict(x_test)
 
+cm = confusion_matrix(y_pred=pred, y_true=y_test)
+print(cm)
+dogruluguTestEt(y_true=y_test, y_pred = pred)
+
+plot_confusion_matrix(dt, x_test, y_test)
+plt.show()

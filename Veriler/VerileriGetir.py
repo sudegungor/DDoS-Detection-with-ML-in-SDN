@@ -12,4 +12,5 @@ def verileriGetir():
     return X,Y,x,y
 
 def setiBol():
+    # Veri setini 1631 tane test, 3309 tane eğitim verisi olacak şekilde böldük
     return train_test_split(X, Y, test_size=0.33)

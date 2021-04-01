@@ -19,3 +19,25 @@ Bu kolonları sayısal verilere çeviriyoruz.
 
 ### Örnek olarak
 ![](KategorikVeriler.png)
+
+## Tahminler
+
+<hr/>
+
+### Decision tree
+
+#### Doğruluk matrisi (confusion matrix)
+
+![](Plotlar/DecisionTreeConfMat.png)
+
+#### DOĞRULUK ORANI
+0.9951
+
+### KNN k nearest neighbors
+
+#### Doğruluk matrisi (confusion matrix)
+
+![](Plotlar/KnnConfMat.png)
+
+#### DOĞRULUK ORANI
+0.9755
