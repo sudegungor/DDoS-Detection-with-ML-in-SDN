@@ -5,7 +5,7 @@ from sklearn.metrics import confusion_matrix, plot_confusion_matrix
 import numpy as np
 import pandas as pd
 from DogrulukTesti.Dogruluk import dogruluguTestEt
-
+from Gorsellestir import Grafik as grafik
 
 X_train, X_test, y_train, y_test = setiBol()
 
@@ -26,3 +26,4 @@ plot_confusion_matrix(knn, X_test, y_test)
 plt.show()
 
 
+# grafik.veriyiGorsellestir(y_test,pred)
