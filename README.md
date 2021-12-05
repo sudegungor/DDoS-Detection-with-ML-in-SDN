@@ -19,7 +19,7 @@ service<br/>
 Bu kolonları sayısal verilere çeviriyoruz.
 
 #### Örnek olarak
-![](KategorikVeriler.png)
+![](gorseller/KategorikVeriler.png)
 
 ### Tahminler
 
@@ -29,7 +29,7 @@ Bu kolonları sayısal verilere çeviriyoruz.
 
 ##### Doğruluk matrisi (confusion matrix)
 
-![](Plotlar/DecisionTreeConfMat.png)
+![](gorseller/DecisionTreeConfMat.png)
 
 #### DOĞRULUK ORANI
 0.9951
@@ -38,7 +38,7 @@ Bu kolonları sayısal verilere çeviriyoruz.
 
 ##### Doğruluk matrisi (confusion matrix)
 
-![](Plotlar/KnnConfMat.png)
+![](gorseller/KnnConfMat.png)
 
 ##### DOĞRULUK ORANI
 0.9755
