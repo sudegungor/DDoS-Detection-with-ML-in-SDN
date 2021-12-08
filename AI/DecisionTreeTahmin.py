@@ -1,7 +1,7 @@
 from sklearn import tree
 from matplotlib import pyplot as plt
-from Veriler.VerileriGetir import setiBol
-from DogrulukTesti.Dogruluk import dogruluguTestEt
+from AI.Veriler.VerileriGetir import setiBol
+from AI.DogrulukTesti.Dogruluk import dogruluguTestEt
 from sklearn.metrics import plot_confusion_matrix, confusion_matrix
 
 x_train, x_test, y_train, y_test = setiBol()

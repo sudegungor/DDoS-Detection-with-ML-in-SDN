@@ -1,11 +1,11 @@
 from sklearn.neighbors import KNeighborsClassifier
-from Veriler.VerileriGetir import setiBol
+from AI.Veriler.VerileriGetir import setiBol
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, plot_confusion_matrix
 import numpy as np
 import pandas as pd
-from DogrulukTesti.Dogruluk import dogruluguTestEt
-from Gorsellestir import Grafik as grafik
+from AI.DogrulukTesti.Dogruluk import dogruluguTestEt
+from AI.Gorsellestir import Grafik as grafik
 
 X_train, X_test, y_train, y_test = setiBol()
 
