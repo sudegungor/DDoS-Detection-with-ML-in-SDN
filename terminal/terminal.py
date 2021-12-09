@@ -6,13 +6,20 @@ class Terminal:
 
     @staticmethod
     def run(cmd:list):
-        output = subprocess.Popen(cmd, shell = True, stdout=subprocess.PIPE).communicate()[0]
+        output = subprocess.Popen(
+            cmd, 
+            shell = True, 
+            stdout=subprocess.PIPE,
+            bufsize=1
+            ).communicate()[0]
+        output.wait()
         res = re.findall(r'\'(.*?)\'', str(output))[0]
-        return Terminal._list_to_dict(
-            Terminal._output_to_list(
-                res
-            )
-        )
+
+        # return Terminal._list_to_dict(
+        #     Terminal._output_to_list(
+        #         res
+        #     )
+        # )
 
 
     @staticmethod
