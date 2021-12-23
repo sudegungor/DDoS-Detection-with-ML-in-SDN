@@ -1,43 +1,21 @@
-import pickle
-import os
 import numpy as np
+from egitilmis_modeller.egitilmis_model_controller import EgitilmisModelController
+
 
 class Degerlendirme:
 
     def __init__(self):
-        _path = os.path.abspath(
-            os.path.join(os.path.dirname( __file__ ), '..', 'egitilmis_modeller')
-        )
-        
-        self._label_encoder = pickle.load(
-            open(f'{_path}/outcome_label_encoder', 'rb')
-        )
+        __egitilmisModelController = EgitilmisModelController()
+        self.__label_encoder = __egitilmisModelController.getOutcomeLabelEncoder()
 
-    def test_et(self, test_verisi, siniflandirma_algoritmasi):
+    def test_et(self, test_verisi, siniflandirma_algoritmasi, gercek_degerler = None):
         sonuclar = siniflandirma_algoritmasi.predict(test_verisi)
-        print('sınıfları:\n',self._label_encoder.inverse_transform(sonuclar.round().astype(int)))
-
-
-_path = os.path.abspath(
-            os.path.join(os.path.dirname( __file__ ), '..', 'egitilmis_modeller')
-        )
-        
-
-test2 = np.array(
-    [
-     [0, 1, 0, 2, 54, 0],
-     [0, 1, 0,0, 217, 2032]
-    ]
-)
-
-
-decision = pickle.load(
-    open(f'{_path}/decisionTreeClassifier', 'rb')
-)
-
-degerlendirme = Degerlendirme()
-
-degerlendirme.test_et(
-    test2,
-    decision
-)
+        if (gercek_degerler is not None):
+            for (sonuc, gercek_deger) in (sonuclar, gercek_degerler):
+                sonuc_adi = self.__label_encoder.inverse_transform([sonuc])[0]
+                gercek_deger_adi = self.__label_encoder.inverse_transform([gercek_deger])[0]
+                print(f'tahmin edilen sonuç: {sonuc_adi} gerçek değer {gercek_deger_adi}')
+        else:
+            for sonuc in sonuclar:
+                sonuc_adi = self.__label_encoder.inverse_transform([sonuc.round().astype(int)])[0]
+                print(f'tahmin edilen sonuç: {sonuc_adi}')

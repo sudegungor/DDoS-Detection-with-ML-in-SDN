@@ -28,12 +28,3 @@ class EgitilmisModelController:
     def getOutcomeLabelEncoder(self):
             return self.__loadClasses('outcome_label_encoder')
 
-
-
-controller = EgitilmisModelController()
-
-encoder = controller.getOutcomeLabelEncoder()
-
-res = encoder.inverse_transform([1, 0])
-
-print(res)

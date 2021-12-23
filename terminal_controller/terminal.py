@@ -1,7 +1,6 @@
 import subprocess
 import re
 
-
 class Terminal:
 
     @staticmethod
