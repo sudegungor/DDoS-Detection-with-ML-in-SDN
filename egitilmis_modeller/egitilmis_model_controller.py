@@ -15,8 +15,10 @@ class EgitilmisModelController:
         return loadedClass
 
     def getDecisionTreeClassifier(self):
-        
         return self.__loadClasses('decisionTreeClassifier')
+
+    def getProtocolTypeOneHotEncoder(self):
+        return self.__loadClasses('protocol_type_one_hot_encoder')
 
     def getNaiveBayesClassifier(self):
         return self.__loadClasses('naiveBayes')

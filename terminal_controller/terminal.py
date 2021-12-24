@@ -1,35 +1,35 @@
 import subprocess
 import re
+import io
 
 class Terminal:
 
     @staticmethod
     def run(cmd:list):
-        output = subprocess.Popen(
+        p = subprocess.Popen(
             cmd, 
-            shell = True, 
             stdout=subprocess.PIPE,
-            bufsize=1
-            ).communicate()[0]
-        output.wait()
-        res = re.findall(r'\'(.*?)\'', str(output))[0]
+            stderr=subprocess.STDOUT
+            )
+        with p.stdout:
+            for line in iter(p.stdout.readline, b''):
+                return Terminal._list_to_dict(Terminal._output_to_list(line))
+        p.wait()
 
-        # return Terminal._list_to_dict(
-        #     Terminal._output_to_list(
-        #         res
-        #     )
-        # )
 
 
     @staticmethod
     def _output_to_list(input_string):
-        return re.split("\\s+", input_string)
+        return re.split("\\s+", str(input_string))
 
     @staticmethod
     def _list_to_dict(liste: list):
-        return {
-            'protocol_type': liste[5],
-            'source_ip': liste[2],
-            'destination_ip': liste[4],
-            'duration': liste[1]
-        }
+            try:
+                return {
+                'protocol_type': str(liste[4]).lower(),
+                'source_ip': liste[2],
+                'destination_ip': liste[3],
+                'duration': liste[1]
+                }
+            except:
+                print('veriler düzgün okunamadı')
