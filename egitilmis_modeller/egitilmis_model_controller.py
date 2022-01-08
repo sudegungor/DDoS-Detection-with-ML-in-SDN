@@ -20,6 +20,9 @@ class EgitilmisModelController:
     def getProtocolTypeOneHotEncoder(self):
         return self.__loadClasses('protocol_type_one_hot_encoder')
 
+    def getYSAModel(self):
+        return self.__loadClasses('ysa_model')
+
     def getNaiveBayesClassifier(self):
         return self.__loadClasses('naiveBayes')
 
