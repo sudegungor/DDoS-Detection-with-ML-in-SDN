@@ -14,7 +14,7 @@ def okunanVeridenSonuca(res):
     print(test)
     degerlendirme.test_et(
         [test],
-        decision,
+        classifier,
     )
 
 
@@ -35,24 +35,24 @@ test2 = np.array(
 
 controller = EgitilmisModelController()
 scaler = controller.getStandardScaler()
-decision = controller.getDecisionTreeClassifier()
+classifier = controller.getYSAModel()
 ohe = controller.getProtocolTypeOneHotEncoder()
 
 degerlendirme = Degerlendirme()
 
 test2 = scaler.transform(test2)
 
-script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'deneme', 'parent.py'))
-print(script_path)
-res = Terminal.run([sys.executable, '-u', script_path])
+# script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'deneme', 'parent.py'))
+# print(script_path)
+# res = Terminal.run([sys.executable, '-u', script_path])
 
 
-okunanVeridenSonuca(res)
+# okunanVeridenSonuca(res)
 
 
-# degerlendirme.test_et(
-#     test2,
-#     decision,
-# )
+degerlendirme.test_et(
+    test2,
+    classifier
+ )
 
 
